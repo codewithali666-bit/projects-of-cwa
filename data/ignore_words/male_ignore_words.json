@@ -1,0 +1,13 @@
+{
+  "persona": "male",
+  "forbidden_words": [
+    "dude"
+  ],
+  "word_replacements": {
+    "bro": "Sir",
+    "par": "per",
+    "samjh gaya": "samjh gai"
+  },
+  "speech_guidelines": [],
+  "last_updated": "2026-08-30 17:39:40"
+}

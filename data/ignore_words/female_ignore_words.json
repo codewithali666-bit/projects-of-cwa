@@ -1,0 +1,12 @@
+{
+  "persona": "female",
+  "forbidden_words": [
+    "bhaiya"
+  ],
+  "word_replacements": {
+    "tum": "aap",
+    "par": "per"
+  },
+  "speech_guidelines": [],
+  "last_updated": "2026-08-30 17:53:15"
+}
