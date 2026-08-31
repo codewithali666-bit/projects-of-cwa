@@ -1,9 +1,0 @@
-{
-  "persona": "global",
-  "forbidden_words": [
-    "Python aur Next.js"
-  ],
-  "word_replacements": {},
-  "speech_guidelines": [],
-  "last_updated": "2026-08-31 00:00:36"
-}
