@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calc Pro Premium</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="calculator">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div class="display">
+      <div class="expression" id="expression">&nbsp;</div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn func" data-action="clear">AC</button>
+      <button class="btn func" data-action="delete">DEL</button>
+      <button class="btn func" data-value="%">%</button>
+      <button class="btn op" data-value="/">÷</button>
+
+      <button class="btn num" data-value="7">7</button>
+      <button class="btn num" data-value="8">8</button>
+      <button class="btn num" data-value="9">9</button>
+      <button class="btn op" data-value="*">×</button>
+
+      <button class="btn num" data-value="4">4</button>
+      <button class="btn num" data-value="5">5</button>
+      <button class="btn num" data-value="6">6</button>
+      <button class="btn op" data-value="-">−</button>
+
+      <button class="btn num" data-value="1">1</button>
+      <button class="btn num" data-value="2">2</button>
+      <button class="btn num" data-value="3">3</button>
+      <button class="btn op" data-value="+">+</button>
+
+      <button class="btn num zero" data-value="0">0</button>
+      <button class="btn num" data-value=".">.</button>
+      <button class="btn eq" data-action="equals">=</button>
+    </div>
+  </div>
+
+  <!-- Membership Modal -->
+  <div class="modal-overlay hidden" id="membershipModal">
+    <div class="modal membership-modal">
+      <button class="close-btn" id="closeMembership">&times;</button>
+
+      <div class="modal-header">
+        <div class="crown">👑</div>
+        <h2>Unlock PRO Results</h2>
+        <p class="subtitle">Correct answers available only for premium members</p>
+      </div>
+
+      <div class="plans">
+        <div class="plan" data-plan="weekly">
+          <div class="plan-badge">MOST POPULAR</div>
+          <h3>Weekly</h3>
+          <div class="price"><span class="dollar">$</span><span class="amount">44,000</span><span class="period">/wk</span></div>
+          <ul class="features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% Correct Answers</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Calculations</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Weekly Updates</li>
+          </ul>
+          <button class="select-plan" data-plan="weekly">Choose</button>
+        </div>
+
+        <div class="plan featured" data-plan="monthly">
+          <div class="plan-badge gold">BEST VALUE</div>
+          <h3>Monthly</h3>
+          <div class="price"><span class="dollar">$</span><span class="amount">60,000</span><span class="period">/mo</span></div>
+          <ul class="features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Weekly</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Priority Support</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Save $4,000/mo</li>
+          </ul>
+          <button class="select-plan gold" data-plan="monthly">Choose</button>
+        </div>
+
+        <div class="plan" data-plan="yearly">
+          <div class="plan-badge">SAVE BIG</div>
+          <h3>Yearly</h3>
+          <div class="price"><span class="dollar">$</span><span class="amount">95,000</span><span class="period">/yr</span></div>
+          <ul class="features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Monthly</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 Months FREE</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lifetime Updates</li>
+          </ul>
+          <button class="select-plan" data-plan="yearly">Choose</button>
+        </div>
+      </div>
+
+      <button class="pay-btn" id="payNowBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span id="payNowText">Pay Now — $44,000</span>
+      </button>
+
+      <div class="secure-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>256-bit SSL Encrypted • 100% Secure</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Processing Modal -->
+  <div class="modal-overlay hidden" id="processingModal">
+    <div class="modal processing-modal">
+      <div class="spinner">
+        <div class="spinner-ring"></div>
+      </div>
+      <h3>Processing Payment...</h3>
+      <p class="processing-text" id="processingStep">Connecting to secure server...</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay hidden" id="successModal">
+    <div class="modal success-modal">
+      <div class="checkmark-wrap">
+        <svg class="checkmark" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <h2>Payment Successful!</h2>
+      <p class="success-sub" id="successSub">Thank you for your purchase</p>
+      <div class="receipt" id="receipt"></div>
+      <button class="continue-btn" id="continueBtn">See My Answer →</button>
+    </div>
+  </div>
+
+  <!-- Answer Result Modal -->
+  <div class="modal-overlay hidden" id="answerModal">
+    <div class="modal answer-modal">
+      <div class="answer-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>PREMIUM RESULT</span>
+      </div>
+      <p class="answer-expression" id="answerExpression">2 + 2 =</p>
+      <div class="answer-value-wrap">
+        <span class="answer-value" id="answerValue">6</span>
+      </div>
+      <p class="answer-tagline">Verified by Calc Pro AI Engine</p>
+      <div class="answer-meta">
+        <div class="meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <span>100% Accurate</span>
+        </div>
+        <div class="meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Pro Verified</span>
+        </div>
+      </div>
+      <button class="answer-close-btn" id="answerCloseBtn">Done Calculating</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
